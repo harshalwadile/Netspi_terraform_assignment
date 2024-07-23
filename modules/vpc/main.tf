@@ -12,6 +12,13 @@ resource "aws_internet_gateway" "net_igw" {
   vpc_id = aws_vpc.net_vpc.id
 }
 
+
+resource "aws_route" "net_route_to_igw" {
+  route_table_id         = aws_vpc.my_vpc.default_route_table_id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.net_igw.id
+}
+
 resource "aws_subnet" "public_subnet" {
   vpc_id            = aws_vpc.net_vpc.id
   cidr_block        = "10.0.1.0/24"
