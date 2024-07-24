@@ -13,6 +13,9 @@ Able to upload object to S3  from the EC2 created, EFS is attached successfully 
    ```bash
    terraform plan -var-file nettest.tfvars
 
-1. **Initialize Terraform:**
+1. **Run apply:**
    ```bash
    terraform apply -var-file nettest.tfvars
+1. **Destroy:**
+   ```bash
+   terraform destroy -var-file nettest.tfvars
